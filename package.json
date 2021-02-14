@@ -7,7 +7,7 @@
     "compile:watch": "NINJA_ANSI_FORCED=1 bsb -make-world -w",
     "bundle": "esbuild src/App.bs.js --outfile=www/dist/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\"development\"'",
     "bundle:watch": "yarn bundle --watch --color=true",
-    "dev-server": "PORT=5000 live-server www",
+    "dev-server": "PORT=5000 live-server www --host=localhost",
     "bundle:production": "yarn bundle --minify --define:process.env.NODE_ENV='\"production\"'",
     "build:production": "yarn compile && yarn bundle:production",
     "clean": "bsb -clean-world && rimraf www/dist"
