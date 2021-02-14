@@ -4,11 +4,11 @@
   "version": "0.0.1",
   "sources": {
     "dir": "src",
-    "subdirs": true
+    "subdirs": true,
   },
   "reason": { "react-jsx": 3 },
   "package-specs": {
-    "module": "commonjs",
+    "module": "es6",
     "in-source": true
   },
   "suffix": ".bs.js",
