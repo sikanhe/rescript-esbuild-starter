@@ -2,7 +2,7 @@
   "name": "rescript-esbuild-template",
   "version": "0.0.1",
   "scripts": {
-    "dev": "concurrently --names rescript,esbuild,server -c red.bold,blue.bold,green.bold --kill-others \"bsb -make-world -w\" \"esbuild src/App.bs.js --outfile=www/dist/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\\\"development\\\"' --watch\" \"serve www\"",
+    "dev": "concurrently --names rescript,esbuild,server -c red.bold,blue.bold,green.bold --kill-others \"NINJA_ANSI_FORCED=1 bsb -make-world -w\" \"esbuild src/App.bs.js --outfile=www/dist/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\\\"development\\\"' --watch\" \"serve www\"",
     "build:production": "bsb -make-world && esbuild src/App.bs.js --outfile=www/dist/bundle.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\"production\"'",
     "clean": "bsb -clean-world && rimraf www/dist"
   },
