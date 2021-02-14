@@ -1,0 +1,28 @@
+body {
+  background: rgb(240, 240, 240);
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.esbuild {
+  display: flex;
+  align-items: center;
+  font-size: 92px;
+  font-weight: 600;
+  margin-top: 40px;
+  font-family: sans-serif;
+  color: rgb(30, 30, 30);
+}
+
+.esbuild img {
+  height: 130px;
+  margin-right: 42px;
+  margin-left: -5px;
+}

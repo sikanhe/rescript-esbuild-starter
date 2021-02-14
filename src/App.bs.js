@@ -3,8 +3,21 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
 
+import './App.css'
+;
+
 function App$App(Props) {
-  return React.createElement("div", undefined, "Hello world");
+  return React.createElement("div", undefined, React.createElement("img", {
+                  src: "https://rescript-lang.org/static/rescript_logo_black.svg"
+                }), React.createElement("div", {
+                  className: "esbuild"
+                }, React.createElement("img", {
+                      src: "https://esbuild.github.io/favicon.svg"
+                    }), React.createElement("div", {
+                      style: {
+                        fontFamily: "sans-serif"
+                      }
+                    }, "esbuild")));
 }
 
 var App = {
@@ -21,4 +34,4 @@ export {
   App ,
   
 }
-/* root Not a pure module */
+/*  Not a pure module */
