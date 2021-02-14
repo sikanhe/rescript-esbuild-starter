@@ -2,10 +2,9 @@
   "name": "rescript-esbuild-template",
   "version": "0.0.1",
   "scripts": {
-    "build": "bsb -make-world && esbuild src/App.bs.js --outfile=dist/bundle.js",
-    "clean": "bsb -clean-world",
-    "start": "bsb -make-world -w",
-    "dev": "concurrently --names rescript,esbuild -c red.bold,blue.bold --kill-others \"bsb -make-world -w\" \"esbuild src/App.bs.js --outfile=dist/bundle.js --watch\""
+    "dev": "concurrently --names rescript,esbuild -c red.bold,blue.bold --kill-others \"bsb -make-world -w\" \"esbuild src/App.bs.js --outfile=dist/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\\\"development\\\"' --watch\"",
+    "build:production": "bsb -make-world && esbuild src/App.bs.js --outfile=dist/bundle.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\"production\"'",
+    "clean": "bsb -clean-world && rimraf dist"
   },
   "keywords": [
     "rescript",
@@ -16,9 +15,12 @@
   "devDependencies": {
     "bs-platform": "*",
     "concurrently": "^5.3.0",
-    "esbuild": "^0.8.45"
+    "esbuild": "^0.8.45",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@rescript/react": "^0.10.1"
+    "@rescript/react": "^0.10.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }
