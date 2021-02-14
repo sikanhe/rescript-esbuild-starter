@@ -2,8 +2,13 @@
   "name": "rescript-esbuild-template",
   "version": "0.0.1",
   "scripts": {
-    "dev": "concurrently --names rescript,esbuild,server -c red.bold,blue.bold,green.bold --kill-others \"NINJA_ANSI_FORCED=1 bsb -make-world -w\" \"esbuild src/App.bs.js --outfile=www/dist/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\\\"development\\\"' --watch\" \"serve www\"",
-    "build:production": "bsb -make-world && esbuild src/App.bs.js --outfile=www/dist/bundle.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\"production\"'",
+    "dev": "concurrently --names server,rescript,esbuild -c green.bold,red.bold,blue.bold --kill-others \"serve www\" yarn:compile:watch yarn:bundle:watch ",
+    "compile": "bsb -make-world",
+    "compile:watch": "NINJA_ANSI_FORCED=1 bsb -make-world -w",
+    "bundle": "esbuild src/App.bs.js --outfile=www/dist/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\"development\"'",
+    "bundle:watch": "yarn bundle --watch",
+    "bundle:production": "yarn bundle --minify --define:process.env.NODE_ENV='\"production\"'",
+    "build:production": "yarn compile && yarn bundle:production",
     "clean": "bsb -clean-world && rimraf www/dist"
   },
   "keywords": [
